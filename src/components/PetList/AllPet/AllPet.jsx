@@ -23,7 +23,7 @@ function AllPet() {
           <div className="px-8 py-16">
             <img
               className="w-64 h-64 mx-auto"
-              src="images/No_Product_Found.png"
+              src="/images/No_Product_Found.png"
               alt="no product"
             />
           </div>
