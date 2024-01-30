@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function PetCard({ pet }) {
-  // export default function ProductCard() {
   return (
     <Link
       to={`/pets/pet-detail/${pet.id}`}
@@ -13,8 +12,8 @@ export default function PetCard({ pet }) {
         <div className="h-60 overflow-hidden">
           <img
             className="object-cover w-full h-80"
-            src="https://img.freepik.com/free-photo/isolated-happy-smiling-dog-white-background-portrait-4_1562-693.jpg"
-            // src={pet.mainImage}
+            // src="https://img.freepik.com/free-photo/isolated-happy-smiling-dog-white-background-portrait-4_1562-693.jpg"
+            src={`/images/${pet.mainImage}`}
             alt="product"
           />
         </div>

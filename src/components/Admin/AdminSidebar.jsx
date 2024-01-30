@@ -8,17 +8,21 @@ import {
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import storageService from "../../config/storageService";
+import { setIsLogin, setRole } from "../../redux/slices/accountSlice";
 // import AdminSubPageType from "../../constants/AdminSubPageType";
 
 export default function AdminSidebar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const onLogout = () => {
-  //   dispatch(clearAdminLoginInfomation());
-  //   navigate("/");
-  //   openNotificationWithIcon('Thành công', 'Bạn đã đăng xuất tài khoản admin!');
-  // }
+  const onLogout = () => {
+    storageService.setAccessToken("");
+    storageService.setRole("");
+    dispatch(setRole(""));
+    dispatch(setIsLogin(false));
+    navigate("/");
+  };
 
   useEffect(() => {}, []);
 
@@ -67,7 +71,7 @@ export default function AdminSidebar() {
           </li>
           <li>
             <button
-              // onClick={() => onLogout()}
+              onClick={() => onLogout()}
               className={`w-full relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-sky-500 p-6`}
             >
               <span className="ml-2 text-sm tracking-wide truncate">

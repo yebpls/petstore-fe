@@ -4,6 +4,7 @@ const initialState = {
   currentUser: null,
   isLogin: false,
   role: "",
+  userId: null,
   username: "",
   loading: false,
   error: null,
@@ -14,6 +15,9 @@ const accountSlice = createSlice({
   name: "account",
   initialState,
   reducers: {
+    setId: (state, action) => {
+      return { ...state, userId: action.payload };
+    },
     setRole: (state, action) => {
       return { ...state, role: action.payload };
     },
@@ -27,6 +31,6 @@ const accountSlice = createSlice({
   extraReducers: (builder) => {},
 });
 
-export const { setRole, setIsLogin, setUsername } = accountSlice.actions;
+export const { setRole, setIsLogin, setUsername, setId } = accountSlice.actions;
 
 export default accountSlice.reducer;

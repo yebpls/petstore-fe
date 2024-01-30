@@ -7,7 +7,7 @@ function ProductOverviewImg({ pet }) {
         width="100%"
         height="50vh"
         className="object-cover"
-        src="https://img.freepik.com/free-photo/isolated-happy-smiling-dog-white-background-portrait-4_1562-693.jpg"
+        src={`/images/${pet.mainImage}`}
         // alt={product.productName}
       />
     </div>

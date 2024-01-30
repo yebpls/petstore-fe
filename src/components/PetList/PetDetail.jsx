@@ -13,7 +13,6 @@ function PetDetail() {
   const { id } = useParams();
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getPetById(id));

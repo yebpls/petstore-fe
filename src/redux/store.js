@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import accountReducer from "./slices/accountSlice";
 import petReducer from "./slices/petSlice";
+import cartReducer from "./slices/cartSlice";
 
 export const store = configureStore({
   reducer: {
     accountReducer,
     petReducer,
+    cartReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

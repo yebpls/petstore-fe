@@ -2,6 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { accountApi } from "../../apis/accountApi";
+import storageService from "../../config/storageService";
+import { jwtDecode } from "jwt-decode";
+import { setIsLogin, setRole } from "../../redux/slices/accountSlice";
 
 function Login() {
   const dispatch = useDispatch();
@@ -16,28 +20,26 @@ function Login() {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    // try {
-    //   const res = await authApi.login(data);
-    //   if (res) {
-    //     console.log(res);
-    //     let unDecodeToken = res.data.data;
-    //     storageService.setAccessToken(unDecodeToken);
-    //     const token = jwtDecode(unDecodeToken);
-    //     console.log(token);
-    //     // loginSuccessNotify();
-    //     dispatch(setIsLogin(true));
-    //     dispatch(setRole(token.roles));
-    //     storageService.setRole(token.roles);
-    //     //  else if (role === "Admin") {
-    //     //   navigate("/admin");
-    //     // } else {
-    //     if (role) navigate("/");
-    //     // }
-    //   }
-    // } catch (error) {
-    //   // setMessage(error.response.data._message);
-    //   // loginFailNotify();
-    // }
+    try {
+      const res = await accountApi.login(data);
+      if (res) {
+        console.log(res);
+        let unDecodeToken = res.data.data;
+        storageService.setAccessToken(unDecodeToken);
+        const token = jwtDecode(unDecodeToken);
+        console.log(token);
+
+        dispatch(setIsLogin(true));
+        dispatch(setRole(token.roles));
+        storageService.setRole(token.roles);
+        let role = storageService.getRole();
+        if (role === "ROLE_ADMIN") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
+      }
+    } catch (error) {}
   };
 
   return (

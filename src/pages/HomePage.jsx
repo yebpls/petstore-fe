@@ -7,14 +7,6 @@ import PetList from "../components/PetList/PetList";
 function HomePage() {
   return (
     <div id="homePage" className="">
-      <section className="container mx-auto flex flex-col pb-12">
-        <div className="flex justify-center py-6">
-          <h1 className="font-bold text-2xl mx-4">
-            <span className="text-sky-500">Khám Phá</span> Ngay
-          </h1>
-        </div>
-      </section>
-
       <section className="bg-neutral-100">
         <div className="container mx-auto flex flex-col">
           <div className="flex justify-center py-6">
@@ -25,7 +17,7 @@ function HomePage() {
 
           <PetList />
           <Link
-            to="/all-featured"
+            to="/pets"
             className="self-center rounded-sm bg-orange-500 text-white px-4 py-1 block mx-auto my-10"
           >
             XEM THÊM

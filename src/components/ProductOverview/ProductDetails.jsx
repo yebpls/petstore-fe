@@ -11,7 +11,7 @@ function ProductDetails({ pet }) {
             <p className="font-bold">Phân loại:</p>
           </div>
           <div>
-            <p> Chó </p>
+            <p> {pet.breed} </p>
           </div>
         </div>
 
@@ -20,7 +20,7 @@ function ProductDetails({ pet }) {
             <p className="font-bold">Tuổi:</p>
           </div>
           <div>
-            <p>2</p>
+            <p>{pet.age}</p>
           </div>
         </div>
 
@@ -29,7 +29,7 @@ function ProductDetails({ pet }) {
             <p className="font-bold">Giới tính:</p>
           </div>
           <div>
-            <p>Đực</p>
+            <p>{pet.gender}</p>
           </div>
         </div>
 
@@ -38,7 +38,7 @@ function ProductDetails({ pet }) {
             <p className="font-bold">Màu sắc:</p>
           </div>
           <div>
-            <p>Nâu</p>
+            <p>{pet.color}</p>
           </div>
         </div>
 
@@ -53,10 +53,10 @@ function ProductDetails({ pet }) {
 
         <div className="flex justify-start">
           <div className="text-left w-28">
-            <p className="font-bold">Kích thước:</p>
+            <p className="font-bold">Nơi sinh:</p>
           </div>
           <div>
-            <p>Không có</p>
+            <p>{pet.country}</p>
           </div>
         </div>
       </div>
