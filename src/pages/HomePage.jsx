@@ -24,30 +24,6 @@ function HomePage() {
           </Link>
         </div>
       </section>
-
-      <section className="bg-gradient-to-tr from-sky-400 to-blue-500">
-        <div className="container mx-auto flex flex-col py-4 pb-12">
-          <div className="flex flex-col justify-center items-center py-6">
-            <h1 className="text-white font-bold text-2xl mx-4">
-              <span className="text-orange-500">Kết nối</span> với{" "}
-              <span className="text-orange-500">chúng tôi</span>
-            </h1>
-            <p className="my-8 text-white">
-              Hãy để lại liên lạc của bạn để nhận được những thông tin mới nhất!
-            </p>
-            <div className="flex rounded-sm overflow-hidden w-full max-w-lg">
-              <input
-                className="p-2 px-6 w-full"
-                type="text"
-                placeholder="Địa chỉ email của bạn"
-              />
-              <button className="bg-orange-500 p-2 px-6 font-bold text-xs">
-                Gửi
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

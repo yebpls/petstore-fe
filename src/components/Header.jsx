@@ -32,9 +32,7 @@ export default function Header() {
   };
 
   useEffect(() => {
-    if (cartId) {
-      dispatch(getCartByCartId(cartId.id));
-    }
+    dispatch(getCartByCartId(cartId?.id));
   }, [cartId]);
 
   useEffect(() => {
@@ -67,7 +65,7 @@ export default function Header() {
             </li>
             {species &&
               species.map((specie) => (
-                <li>
+                <li key={specie.id}>
                   <Link
                     to={`/pets/species/${specie.name.toLowerCase()}`}
                     state={specie.id}

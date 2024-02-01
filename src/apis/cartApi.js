@@ -10,4 +10,8 @@ export const cartApi = {
     const url = `/api/cartItem/findAllByCart?cartId=${id}`;
     return axios.get(API_URL + url);
   },
+  addToCart(params) {
+    const url = `/api/cartItem/add`;
+    return axios.post(API_URL + url, params);
+  },
 };

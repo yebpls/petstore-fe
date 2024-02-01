@@ -15,6 +15,7 @@ import { jwtDecode } from "jwt-decode";
 import { setId, setIsLogin, setRole } from "./redux/slices/accountSlice";
 import AllPet from "./components/PetList/AllPet/AllPet";
 import AllBySpecies from "./components/PetList/AllBySpecies/AllBySpecies";
+import CartPage from "./pages/CartPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ function App() {
           <Route path="/pets" element={<AllPet />} />
           <Route path="/pets/species/:name" element={<AllBySpecies />} />
           <Route path="/pets/pet-detail/:id" element={<PetDetail />} />
+          <Route path="/cart" element={<CartPage />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/admin" element={<AdminLayout />}>

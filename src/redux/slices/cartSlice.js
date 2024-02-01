@@ -27,8 +27,20 @@ export const getCartByCartId = createAsyncThunk(
   }
 );
 
+export const addToCart = createAsyncThunk("cart/add", async (params) => {
+  try {
+    const res = await cartApi.addToCart(params);
+    const { cartId } = initialState;
+    getCartByCartId(cartId.id);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const initialState = {
   cart: [],
+  cartItems: null,
   cartId: null,
 };
 
@@ -41,7 +53,10 @@ const petSlice = createSlice({
       return { ...state, cartId: action.payload };
     });
     builder.addCase(getCartByCartId.fulfilled, (state, action) => {
-      return { ...state, cart: [action.payload] };
+      return { ...state, cart: action.payload };
+    });
+    builder.addCase(addToCart.fulfilled, (state, action) => {
+      return { ...state, cart: [...state.cart, action.payload] };
     });
   },
 });
